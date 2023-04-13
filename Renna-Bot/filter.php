@@ -2,7 +2,7 @@
 use Carbon\Carbon;
 
 $guild=$message->guild;
-$conex=mysqli_connect("85.159.212.188","renna","rennabotroot","renna_bot") or die("Error:".mysqli_error($conex));
+
 $gid=$guild->id;
 $table="CREATE TABLE IF NOT EXISTS filtro_$gid(palabra VARCHAR(255))";
 $resul=mysqli_query($conex,$table);

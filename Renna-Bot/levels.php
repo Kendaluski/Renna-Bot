@@ -8,7 +8,7 @@ include_once('library.php');
 $user=$message->author->id;
 $guild=$message->guild;
 $gid=$guild->id;
-$conex=mysqli_connect("85.159.212.188","renna","rennabotroot","renna_bot") or die("Error:".mysqli_error($conex));
+
 $sql="SELECT messages,level from l$gid where id = ".$user;
 $resul=mysqli_query($conex,$sql);
 if (mysqli_num_rows($resul)==0) {

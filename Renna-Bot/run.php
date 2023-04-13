@@ -13,11 +13,6 @@ use Discord\Parts\Channel\Channel;
 
 set_time_limit(0);
 
-$discord = new Discord([
-    'token' => 'OTUyNTMxMzQ1Njg5NjczNzQ5.Yi3X8Q.XRxeNfDyxGBBsWxYveWXiB17oGA',
-    'intents' => [Intents::GUILDS, Intents::GUILD_BANS, Intents::GUILD_INTEGRATIONS, Intents::GUILD_MEMBERS, Intents::GUILD_MESSAGES],
-    'loadAllMembers' => true
-]);
 
 
 $discord->on('ready', function ($discord){
@@ -25,7 +20,7 @@ $discord->on('ready', function ($discord){
 
     $discord->on("MESSAGE_CREATE", function(Message $message, Discord $discord){
     $guild=$message->guild;
-    $conex=mysqli_connect("85.159.212.188","renna","rennabotroot","renna_bot") or die("Error:".mysqli_error($conex));
+    
     $gid=$guild->id;
     $table="CREATE TABLE IF NOT EXISTS l$gid(id VARCHAR(255),messages INT,level INT)";
     $resul=mysqli_query($conex,$table);
